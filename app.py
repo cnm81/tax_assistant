@@ -4,7 +4,7 @@ import retrieve
 
 # To run: streamlit run app.py
 
-db = retrieve.load_db(None)
+db = retrieve.load_db()
 retriever = db.as_retriever()
 
 st.title('Skatteregler, avmystifierade')
