@@ -1,4 +1,4 @@
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 from langchain.document_loaders import PyPDFLoader  # For loading PDF documents
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS
@@ -9,14 +9,15 @@ import streamlit as st
 
 import os
 
-#openai_api_key = st.secrets["openai_secret"]
+openai_api_key = st.secrets["openai_api_key"]
 #TMP
-load_dotenv()
-openai_api_key = os.getenv('OPENAI_API_KEY')
+#load_dotenv()
+#openai_api_key = os.getenv('OPENAI_API_KEY')
 
 def load_db(texts):
     index_file = 'vectorstore'  
-    return FAISS.load_local(index_file, OpenAIEmbeddings(), allow_dangerous_deserialization=True)
+    emb = OpenAIEmbeddings()
+    return FAISS.load_local(index_file, emb, allow_dangerous_deserialization=True)
 
 def chat_with_documents(query, retriever, n_results=5):
     # Use the retriever to find the most relevant document chunk
