@@ -41,14 +41,14 @@ def chat_with_documents(query, retriever, n_results=5):
     return response.content
 
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     # Example usage
 
-    db = load_db(None)
+    #db = load_db(None)
 
-    query = "Hur mycket behöver jag betala i arbetsgivaravgift? "
+    #query = "Hur mycket behöver jag betala i arbetsgivaravgift? "
 
     # Initialize the retriever
-    retriever = db.as_retriever()
-    response = chat_with_documents(query, retriever)
-    print(f"Answer: {response}")
+    #retriever = db.as_retriever()
+    #response = chat_with_documents(query, retriever)
+    #print(f"Answer: {response}")
