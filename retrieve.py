@@ -1,4 +1,4 @@
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 from langchain.document_loaders import PyPDFLoader  # For loading PDF documents
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS
@@ -15,7 +15,7 @@ openai_api_key = st.secrets["openai_api_key"]
 #openai_api_key = os.getenv('OPENAI_API_KEY')
 
 def load_db(index_file='vectorstore'): 
-    emb = OpenAIEmbeddings()
+    emb = OpenAIEmbeddings(openai_api_key=openai_api_key)
     return FAISS.load_local(index_file, emb, allow_dangerous_deserialization=True)
 
 def chat_with_documents(query, retriever, n_results=5):
