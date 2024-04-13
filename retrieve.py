@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
     db = load_db()
 
-    query = "Hur mycket behöver jag betala i arbetsgivaravgift? "
+    query = "Är det möjligt att skjuta upp skatt på företagets vinst till nästkommande år? "
 
     # Initialize the retriever
     retriever = db.as_retriever()
